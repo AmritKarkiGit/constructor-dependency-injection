@@ -14,11 +14,11 @@ public class AmazonAlexa:ISecurityCameraService
 	public void ConnectRemotely() { Console.WriteLine("Amazon Alexa Security Camera Service Called."); }
 }
 
-public class MyClient
+public class SecurityCamera
 {
 	private ISecurityCameraService _scs;
 
-	public MyClient(ISecurityCameraService scs)
+	public SecurityCamera(ISecurityCameraService scs)
     {
 		this._scs = scs;
 		
@@ -34,13 +34,13 @@ class Program
 {
 	static void Main(string[] agrs)
     {
-		GoogleNest gs = new GoogleNest();
+		GoogleNest gn = new GoogleNest();
 
-		MyClient mc1 = new MyClient(gs);
-		mc1.GetConnected();
+		SecurityCamera  sc1 = new SecurityCamera(gn);
+		sc1.GetConnected();
 
 		AmazonAlexa aa = new AmazonAlexa();
-		MyClient mc2 = new MyClient(aa);
-		mc2.GetConnected();
+		SecurityCamera sc2 = new SecurityCamera(aa);
+		sc2.GetConnected();
     }
 }
